@@ -27,9 +27,20 @@
         }
     }
     
+    @media (min-width:790px) {
+        #searchdistrict {
+            display: none;
+        }
+    }
+    
     @media(max-width: 590px) {
         #world {
             text-align: center;
+        }
+        #worlddata {
+            background-color: aliceblue;
+            border-radius: 10px;
+            margin: 6px;
         }
         #firstmain {
             display: flex;

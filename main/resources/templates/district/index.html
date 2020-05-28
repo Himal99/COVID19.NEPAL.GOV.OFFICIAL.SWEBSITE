@@ -1,0 +1,39 @@
+<div th:replace="home/header"></div>
+
+<div class="container">
+
+    <div class="row" id="coviddata">
+
+    </div>
+
+</div>
+
+
+<div th:replace="home/footer"></div>
+
+<script>
+    $(document).ready(function() {
+        for (var i = 1; i <= 77; i++) {
+            var settings = {
+                "url": "https://data.nepalcorona.info/api/v1/districts/" + i,
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function(response) {
+
+                var $data = $('#coviddata');
+                $('<div class="thumbnail col-xs-6 col-md-6 text-center "  style=" margin-right: 15px; width: 180px; height: 90px; background-color: rgb(235, 251, 236);; ">' +
+
+                    '<br> <b style="font-size:25px; ">' + response.covid_cases.length + ' </b><br>' +
+                    '<p style="color: darkgray; ">' + response.title + '</p> </div>').appendTo($data);
+
+
+
+            });
+        }
+
+
+
+    })
+</script>
